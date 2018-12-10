@@ -14,6 +14,7 @@ import Index from './app/components/Index';
 import Camera from './app/components/Camera';
 import Home from './app/components/Home';
 import Units from './app/components/Polling-units';
+import Reports from './app/components/Reports';
 
 const reducerCreate = params => {
   const defaultReducer = new Reducer(params);
@@ -37,7 +38,8 @@ export default class App extends Component<Props> {
                 <Scene  key='index' component={Index} />
                 <Scene key='camera' component={Camera} />
                 <Scene key='units' component={Units} />
-                <Scene initial key='home' component={Home} />
+                <Scene  key='home' component={Home} />
+                <Scene initial key='reports' component={Reports} />
               </Stack>
             </Lightbox>
         </Overlay>

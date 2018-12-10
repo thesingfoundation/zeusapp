@@ -114,7 +114,7 @@ export default class App extends Component<Props> {
             </Card>
             <View style={styles.button}>
               <Button rounded warning>
-              <Text style={{color:'white', padding: 20, paddingTop: 5, fontSize:18}}>Continue</Text>
+              <Text onPress={Actions.units} style={{color:'white', padding: 20, paddingTop: 5, fontSize:18}}>Continue</Text>
             </Button>
             </View>
 
