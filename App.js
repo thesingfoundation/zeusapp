@@ -5,8 +5,8 @@ import {
   Router,
   Reducer,
   Overlay,
-  Tabs,
   Stack,
+  Drawer,
   Lightbox
 } from 'react-native-router-flux';
 //App components
@@ -15,7 +15,9 @@ import Camera from './app/components/Camera';
 import Home from './app/components/Home';
 import Units from './app/components/Polling-units';
 import Reports from './app/components/Reports';
-
+import DrawerContent from './app/components/Side-drawer';
+import About from './app/components/About';
+import Volunteer from './app/components/Volunteer';
 const reducerCreate = params => {
   const defaultReducer = new Reducer(params);
   return (state, action) => {
@@ -38,8 +40,17 @@ export default class App extends Component<Props> {
                 <Scene  key='index' component={Index} />
                 <Scene key='camera' component={Camera} />
                 <Scene key='units' component={Units} />
-                <Scene  key='home' component={Home} />
-                <Scene initial key='reports' component={Reports} />
+                <Scene key='reports' component={Reports} />
+                <Scene key='about' component={About} />
+                <Scene key='volunteer' component={Volunteer} />
+                <Drawer
+                  initial
+                  hideNavBar
+                  key="drawer"
+                  contentComponent={DrawerContent}
+                >
+                <Scene initial key='home' component={Home} hideNavBar />
+              </Drawer>
               </Stack>
             </Lightbox>
         </Overlay>

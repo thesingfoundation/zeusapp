@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
+import {Platform, StyleSheet, Text, View, ScrollView, Share} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Card,  Form, Item, Picker, Fab, Spinner} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import * as firebase from 'firebase';
@@ -30,10 +30,8 @@ export default class App extends Component<Props> {
      this.setState({states:this.states, loading:false})
    })
  }
- onValueChange2(value: string) {
-   this.setState({
-     selected2: value
-   });
+ shareApp = () => {
+   Share.share({message:"Hello, I have downloaded the Sing Foundation Election Violence Monitoring App, and I am excited to share it with you. Download it to view and report election violence in areas near you.", title:"Sing Foundation App"})
  }
  showPageContent () {
    return (
@@ -65,7 +63,7 @@ export default class App extends Component<Props> {
       <View style={styles.container}>
       <Header style={{backgroundColor:'#FF9800'}}>
         <Left>
-          <Button transparent>
+          <Button onPress={Actions.drawerOpen} transparent>
             <Icon name='menu' />
           </Button>
         </Left>
@@ -73,7 +71,7 @@ export default class App extends Component<Props> {
           <Title style={{color:'white'}}>Home</Title>
         </Body>
         <Right>
-          <Button transparent>
+          <Button onPress={this.shareApp} transparent>
             <Icon name='share' />
           </Button>
         </Right>
@@ -92,10 +90,10 @@ export default class App extends Component<Props> {
             active={this.state.active}
             direction="up"
             containerStyle={{ }}
-            style={{ backgroundColor: '#5067FF' }}
+            style={{ backgroundColor: '#009688' }}
             position="bottomRight"
             onPress={Actions.index}>
-            <Icon name="add" />
+            <Icon name="mail" />
           </Fab>
       </View>
     </View>
