@@ -14,6 +14,7 @@ import Index from './app/components/Index';
 import Camera from './app/components/Camera';
 import Home from './app/components/Home';
 import Units from './app/components/Polling-units';
+import Reports from './app/components/Reports';
 import DrawerContent from './app/components/Side-drawer';
 import About from './app/components/About';
 import Volunteer from './app/components/Volunteer';
@@ -39,6 +40,7 @@ export default class App extends Component<Props> {
                 <Scene  key='index' component={Index} />
                 <Scene key='camera' component={Camera} />
                 <Scene key='units' component={Units} />
+                <Scene key='reports' component={Reports} />
                 <Scene key='about' component={About} />
                 <Scene key='volunteer' component={Volunteer} />
                 <Drawer

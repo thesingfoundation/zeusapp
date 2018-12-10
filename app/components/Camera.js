@@ -9,6 +9,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title} from 'native-base';
+import {Actions} from 'react-native-router-flux';
 import ImagePicker from 'react-native-image-picker';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -59,7 +60,7 @@ export default class App extends Component<Props> {
         <View>
         <Header>
           <Left>
-            <Button transparent>
+            <Button onPress={Actions.reports} transparent>
               <Icon name='arrow-back' />
             </Button>
           </Left>

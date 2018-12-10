@@ -1,14 +1,18 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, FlatList} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Card,  Form, Item, Picker, Input } from 'native-base';
+import {Actions} from 'react-native-router-flux';
 export default class App extends Component<Props> {
   renderItem({item, index}) {
     return(
       <View style={{ borderBottomWidth:1, borderColor:'grey' }}>
         <View style={{margin:10,flexDirection:'row', flex:1, justifyContent:'space-between', marginTop:10,}}>
-          <Text>hello</Text>
-          <Text>hi</Text>
-          <Text>yhhh</Text>
+          <Text style={{marginTop:15}}>1. &nbsp;PU: 06/03/03/005</Text>
+          <Text style={{marginTop:15}}>Reports: 600</Text>
+          <Button onPress={Actions.reports} success>
+          <Text  style={{color:'white', padding: 20, paddingTop: 5, fontSize:18}}>Report</Text>
+        </Button>
+
         </View>
 
       </View>
@@ -19,7 +23,7 @@ export default class App extends Component<Props> {
       <View style={styles.container}>
       <Header style={{backgroundColor:'#FF9800'}}>
         <Left>
-          <Button transparent>
+          <Button onPress={Actions.index} transparent>
             <Icon name='arrow-back' />
           </Button>
         </Left>
