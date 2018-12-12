@@ -1,15 +1,38 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, FlatList} from 'react-native';
-import { Container, Header, Left, Body, Right, Button, Icon, Title, Card,  Form, Item, Picker, Input } from 'native-base';
+import { Container, Header, Left, Body, Right, Button, Icon, Title, Card,  Form, Item, Picker, Input, Spinner} from 'native-base';
 import {Actions} from 'react-native-router-flux';
-export default class App extends Component<Props> {
-  renderItem({item, index}) {
+import * as firebase from 'firebase';
+import {Firebase} from '../../helpers/Firebase';
+export default class Units extends Component<Props> {
+  constructor (props) {
+    super(props)
+    this.state = {
+      units:[],
+      loading:true
+    }
+    this.unitsRef = firebase.database().ref().child('polling_units')
+    this.units = []
+  }
+  componentDidMount () {
+    this.unitsRef.child(this.props.wardId).once('value', (units)=> {
+      units.forEach((unit)=> {
+        this.units.push({
+          name:unit.val().name,
+          unitId:unit.val().unitId,
+          reports:unit.val().reports,
+          key:unit.key})
+      })
+      this.setState({units:this.units, loading:false})
+    })
+  }
+  renderItem = ({item, index}) => {
     return(
-      <View style={{ borderBottomWidth:1, borderColor:'grey' }}>
+      <View key={item.key} style={{ borderBottomWidth:1, borderColor:'grey' }}>
         <View style={{margin:10,flexDirection:'row', flex:1, justifyContent:'space-between', marginTop:10,}}>
-          <Text style={{marginTop:15}}>1. &nbsp;PU: 06/03/03/005</Text>
-          <Text style={{marginTop:15}}>Reports: 600</Text>
-          <Button onPress={Actions.reports} success>
+          <Text style={{marginTop:15}}>{index+1}. &nbsp;{item.unitId}</Text>
+          <Text style={{marginTop:15}}>Reports: {item.reports}</Text>
+          <Button onPress={()=>Actions.reports({unitKey:item.key, stateId:this.props.stateId, wardId:this.props.wardId})} success>
           <Text  style={{color:'white', padding: 20, paddingTop: 5, fontSize:18}}>Report</Text>
         </Button>
 
@@ -18,34 +41,41 @@ export default class App extends Component<Props> {
       </View>
     )
   }
+  searchText (text) {
+    if (text === '') {
+      this.setState({units:this.units})
+    }else{
+      let units = this.units.filter((unit)=> unit.unitId.toLowerCase().includes(text.toLowerCase()))
+      if (units.lenght > 0) {
+        this.setState({units})
+      }
+    }
+  }
   render() {
     return (
       <View style={styles.container}>
       <Header style={{backgroundColor:'#FF9800'}}>
         <Left>
-          <Button onPress={Actions.index} transparent>
-            <Icon name='arrow-back' />
+          <Button onPress={()=>Actions.pop()} transparent>
+            <Icon style={{color:'white'}} name='arrow-back' />
           </Button>
         </Left>
         <Body >
           <Title style={{color:'white'}}>Polling Units</Title>
         </Body>
         <Right>
-          <Button transparent>
-            <Icon name='menu' />
-          </Button>
+
         </Right>
       </Header>
       <View style={styles.body}>
         <Item style={{borderWidth:2, borderRadius:10, borderColor:'blue',}}>
-            <Input placeholder="Search" style={{borderWidth:2, borderRadius:10, borderColor:'#E0E0E0',textAlign:'center', justifyContent:'center' }}/>
+            <Input onChangeText={(text)=>this.searchText(text)} placeholder="Search" style={{borderWidth:2, borderRadius:10, borderColor:'#E0E0E0',textAlign:'center', justifyContent:'center' }}/>
           </Item>
-          <FlatList
-            data={[{key: 'a'},{key: 'b'}, {key: 'c'}, {key: 'd'}, {key: 'e'},{key: 'f'}]}
+          {this.state.loading ? <Spinner color='green' /> : <FlatList
+            data={this.state.units}
             renderItem={this.renderItem}
-          />
+          />}
       </View>
-      <View style={{flex:0.5, }}></View>
     </View>
 
     );

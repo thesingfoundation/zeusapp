@@ -5,7 +5,7 @@ import {Actions} from 'react-native-router-flux';
 import * as firebase from 'firebase';
 import {Firebase} from '../../helpers/Firebase';
 type Props = {};
-export default class App extends Component<Props> {
+export default class Home extends Component<Props> {
   constructor(props) {
    super(props);
    this.state = {
@@ -64,7 +64,7 @@ export default class App extends Component<Props> {
       <Header style={{backgroundColor:'#FF9800'}}>
         <Left>
           <Button onPress={Actions.drawerOpen} transparent>
-            <Icon name='menu' />
+            <Icon style={{color:'white'}} name='menu' />
           </Button>
         </Left>
         <Body >
@@ -72,7 +72,7 @@ export default class App extends Component<Props> {
         </Body>
         <Right>
           <Button onPress={this.shareApp} transparent>
-            <Icon name='share' />
+            <Icon style={{color:'white'}} name='share' />
           </Button>
         </Right>
       </Header>

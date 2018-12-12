@@ -11,7 +11,6 @@ import {
 } from 'react-native-router-flux';
 //App components
 import Index from './app/components/Index';
-import Camera from './app/components/Camera';
 import Home from './app/components/Home';
 import Units from './app/components/Polling-units';
 import Reports from './app/components/Reports';
@@ -37,8 +36,7 @@ export default class App extends Component<Props> {
                 hideNavBar
                 key="root"
               >
-                <Scene  key='index' component={Index} />
-                <Scene key='camera' component={Camera} />
+                <Scene key='index' component={Index} />
                 <Scene key='units' component={Units} />
                 <Scene key='reports' component={Reports} />
                 <Scene key='about' component={About} />
