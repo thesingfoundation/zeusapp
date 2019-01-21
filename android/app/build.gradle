@@ -142,6 +142,8 @@ configurations.all {
     }
 
 dependencies {
+    compile project(':react-native-image-picker')
+    compile project(':react-native-fetch-blob')
     implementation project(':react-native-fetch-blob')
     implementation project(':react-native-image-picker')
     implementation fileTree(dir: "libs", include: ["*.jar"])

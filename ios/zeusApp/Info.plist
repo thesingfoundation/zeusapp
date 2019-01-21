@@ -42,7 +42,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>for camera usage</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>access to microphone for video upload</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>

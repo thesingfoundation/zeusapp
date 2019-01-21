@@ -85,19 +85,17 @@ export default class Reports extends Component<Props> {
      } else {
        const source = { uri: response.uri };
 
-       // You can also display the image using data:
-       //const source = { uri: 'data:image/jpeg;base64,' + response.data };
-
        this.setState({
          avatarSource: source.uri,
        });
      }
    });
   }
-  saveImage = async () => {
+  saveImage = () => {
+    alert("Uploading image")
     const sessionId = new Date().getTime()
-   var ref = firebase.storage().ref().child('reports').child('attachments').child(sessionId)
-   await uploadImage(this.state.avatarSource, ref, 'image/jpeg').then(url => {
+   var ref = firebase.storage().ref().child('reports').child('attachments').child(sessionId.toString())
+   uploadImage(this.state.avatarSource, ref, 'image/jpeg').then(url => {
      this.saveForm(url)
    }).catch(error => console.log(error))
    }
