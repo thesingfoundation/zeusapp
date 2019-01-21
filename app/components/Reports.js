@@ -49,6 +49,8 @@ export default class Reports extends Component<Props> {
    this.statsRef = firebase.database().ref().child('stats')
    this.unitsRef = firebase.database().ref().child('polling_units')
    this.reportsRef = firebase.database().ref().child('reports')
+   this.reportCountRef = firebase.database().ref().child('report_count')
+   this.lgaRef = firebase.database().ref().child('lgas')
   }
   onValueChange2(value: string) {
     this.setState({
@@ -117,7 +119,8 @@ export default class Reports extends Component<Props> {
      report_time:firebase.database.ServerValue.TIMESTAMP,
      polling_unit:this.props.unitKey,
      state:this.props.stateId,
-     wardId:this.props.wardId
+     wardId:this.props.wardId,
+     lgaId:this.props.lgaId,
    }
    this.statsRef.child(this.props.stateId).child(this.state.selected2).once('value', (reports)=>{
      reports.ref.set(reports.val() + 1)
@@ -125,7 +128,15 @@ export default class Reports extends Component<Props> {
    this.unitsRef.child(this.props.wardId).child(this.props.unitKey).child('reports').once('value', (reports)=> {
      reports.ref.set(reports.val() + 1)
    })
-   this.reportsRef.child(this.props.unitKey).push(data, (error)=> {
+   this.lgaRef.child(this.props.stateId).child(this.props.lgaId).child('reports').once('value', (reports)=>{//This saves more mb since it pointed down to a specific child and makess update
+     if (reports.exists()){
+     	reports.ref.set(reports.val() + 1)
+     }else{
+     	reports.ref.set(1)
+     }
+   })
+
+   this.reportsRef.push(data, (error)=> {
      if (!error) {
        this.setState({loading:false})
        alert("Thank you for reporting, report details have been successfully saved")

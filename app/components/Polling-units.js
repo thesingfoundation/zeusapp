@@ -32,7 +32,7 @@ export default class Units extends Component<Props> {
         <View style={{margin:10,flexDirection:'row', flex:1, justifyContent:'space-between', marginTop:10,}}>
           <Text style={{marginTop:15}}>{index+1}. &nbsp;{item.unitId}</Text>
           <Text style={{marginTop:15}}>Reports: {item.reports}</Text>
-          <Button onPress={()=>Actions.reports({unitKey:item.key, stateId:this.props.stateId, wardId:this.props.wardId})} success>
+          <Button onPress={()=>Actions.reports({unitKey:item.key, stateId:this.props.stateId, wardId:this.props.wardId, lgaId:this.props.lgaId})} success>
           <Text  style={{color:'white', padding: 20, paddingTop: 5, fontSize:18}}>Report</Text>
         </Button>
 

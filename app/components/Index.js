@@ -68,7 +68,7 @@ export default class Index extends Component<Props> {
  }
   loadNext = () => {
     this.setState(prev => ({selected1:undefined, selected2:undefined, selected3:undefined}))
-    return Actions.units({wardId:this.state.selected3, stateId:this.state.selected1})
+    return Actions.units({wardId:this.state.selected3, stateId:this.state.selected1,lgaId:this.state.selected2})
   }
   render() {
     return (
