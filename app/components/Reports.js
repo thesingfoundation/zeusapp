@@ -131,7 +131,8 @@ export default class Reports extends Component<Props> {
      wardId:this.props.wardId,
      lgaId:this.props.lgaId,
      location:this.state.location,
-     position:{longitude:this.state.longitude, latitude:this.state.latitude}
+     position:{longitude:this.state.longitude, latitude:this.state.latitude},
+     false_report:false
    }
    this.statsRef.child(this.props.stateId).child(this.state.selected2).once('value', (reports)=>{
      reports.ref.set(reports.val() + 1)
