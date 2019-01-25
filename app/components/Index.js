@@ -162,15 +162,17 @@ export default class Index extends Component<Props> {
            </View>}
         </Form>
             </Card>
-            {this.state.selected3 !== undefined && <View style={styles.button}>
-              <Button onPress={this.loadNext} rounded warning>
-              <Text style={{color:'white', padding: 20, paddingTop: 5, fontSize:18}}>Continue</Text>
-            </Button>
-          </View>}
+
 
 
       </View>
-      <View style={{flex:0.5, }}></View>
+      <View style={{flex:0.5, }}>
+        {this.state.selected3 !== undefined && <View style={styles.button}>
+          <Button onPress={this.loadNext} rounded warning>
+          <Text style={{color:'white', padding: 20, paddingTop: 5, fontSize:18}}>Continue</Text>
+        </Button>
+      </View>}
+      </View>
     </View>
 
     );

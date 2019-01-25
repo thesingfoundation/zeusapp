@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, ScrollView, Share, TouchableOpacity, AsyncStorage} from 'react-native';
+import {Platform, StyleSheet, Text, View, ScrollView, Share, TouchableOpacity, AsyncStorage,Alert } from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Card,  Form, Item, Picker, Fab, Spinner} from 'native-base';
 import Geocoder from 'react-native-geocoder';
 import {Actions} from 'react-native-router-flux';
