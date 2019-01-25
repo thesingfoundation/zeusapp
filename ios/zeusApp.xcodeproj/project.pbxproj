@@ -45,6 +45,7 @@
 		60EBF3ADC9AC45529A9C4DA2 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDCEBF7798E847F59817B4DA /* MaterialCommunityIcons.ttf */; };
 		614AE2AEE87945B5ABEABF18 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 886E3AC2A9A54357ADE36E0F /* Zocial.ttf */; };
 		6466AAFD56AC40E7968DB633 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BF6753361274C19B79E2981 /* rubicon-icon-font.ttf */; };
+		64A5525253654A61B1910FDD /* libRNGeocoder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A01822BDFD2C439EB9D7859C /* libRNGeocoder.a */; };
 		64DBB474BF824F1292DB9310 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66D7BBE8D5D94E50BBFC4C65 /* MaterialIcons.ttf */; };
 		77BC04F5170C4140A554A466 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A53F5757EF274C8BA6EFBE9B /* FontAwesome.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -133,6 +134,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = A15C300E1CD25C330074CB35;
 			remoteInfo = RNFetchBlob;
+		};
+		216B549021FB37C7002656F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDB2D69988A3440EBE69EC94 /* RNGeocoder.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BF8FCF941BFFB184000FCD37;
+			remoteInfo = RNGeocoder;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -384,10 +392,12 @@
 		7AB89D9ADCE54738A15DEE8B /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		886E3AC2A9A54357ADE36E0F /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		A01822BDFD2C439EB9D7859C /* libRNGeocoder.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGeocoder.a; sourceTree = "<group>"; };
 		A38D7DEF45A84358B6959E70 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		A53F5757EF274C8BA6EFBE9B /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		CAEE3BC6B27249E2A1D2AB85 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		DDB2D69988A3440EBE69EC94 /* RNGeocoder.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGeocoder.xcodeproj; path = "../node_modules/react-native-geocoder/ios/RNGeocoder.xcodeproj"; sourceTree = "<group>"; };
 		DDCEBF7798E847F59817B4DA /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		F65F9C7B522249ACA8C52404 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		FD750C2D108F4C80A0E14D52 /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/react-native-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
@@ -420,6 +430,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				F03513BCB81D465F89B33563 /* libRNImagePicker.a in Frameworks */,
 				C9EAC17AF59E4F959E3D1836 /* libRNFetchBlob.a in Frameworks */,
+				64A5525253654A61B1910FDD /* libRNGeocoder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +581,7 @@
 			children = (
 				6B9A6183B0F347CF8FE5B2B3 /* libRNImagePicker.a */,
 				39861A4BBACD47C4AF15A501 /* libRNFetchBlob.a */,
+				A01822BDFD2C439EB9D7859C /* libRNGeocoder.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -586,6 +598,14 @@
 			isa = PBXGroup;
 			children = (
 				2111618E21BD142B000EDE2B /* libRNFetchBlob.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		216B548D21FB37C7002656F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				216B549121FB37C7002656F7 /* libRNGeocoder.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -633,6 +653,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				7562351CF1AA44FBAA13D6C7 /* RNImagePicker.xcodeproj */,
 				FD750C2D108F4C80A0E14D52 /* RNFetchBlob.xcodeproj */,
+				DDB2D69988A3440EBE69EC94 /* RNGeocoder.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -794,6 +815,11 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = Z3S3WBY7L4;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -871,6 +897,10 @@
 				{
 					ProductGroup = 2111618A21BD142B000EDE2B /* Products */;
 					ProjectRef = FD750C2D108F4C80A0E14D52 /* RNFetchBlob.xcodeproj */;
+				},
+				{
+					ProductGroup = 216B548D21FB37C7002656F7 /* Products */;
+					ProjectRef = DDB2D69988A3440EBE69EC94 /* RNGeocoder.xcodeproj */;
 				},
 				{
 					ProductGroup = 2111615221BD0E1A000EDE2B /* Products */;
@@ -956,6 +986,13 @@
 			fileType = archive.ar;
 			path = libRNFetchBlob.a;
 			remoteRef = 2111618D21BD142B000EDE2B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		216B549121FB37C7002656F7 /* libRNGeocoder.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGeocoder.a;
+			remoteRef = 216B549021FB37C7002656F7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */ = {
@@ -1318,12 +1355,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-geocoder/ios/RNGeocoder",
 				);
 				INFOPLIST_FILE = zeusAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1347,12 +1386,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-geocoder/ios/RNGeocoder",
 				);
 				INFOPLIST_FILE = zeusAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1377,6 +1418,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-geocoder/ios/RNGeocoder",
 				);
 				INFOPLIST_FILE = zeusApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1402,6 +1444,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-geocoder/ios/RNGeocoder",
 				);
 				INFOPLIST_FILE = zeusApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1434,11 +1477,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-geocoder/ios/RNGeocoder",
 				);
 				INFOPLIST_FILE = "zeusApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1471,11 +1516,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-geocoder/ios/RNGeocoder",
 				);
 				INFOPLIST_FILE = "zeusApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1507,11 +1554,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-geocoder/ios/RNGeocoder",
 				);
 				INFOPLIST_FILE = "zeusApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1543,11 +1592,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-geocoder/ios/RNGeocoder",
 				);
 				INFOPLIST_FILE = "zeusApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);

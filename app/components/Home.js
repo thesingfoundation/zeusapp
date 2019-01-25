@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, ScrollView, Share} from 'react-native';
+import {Platform, StyleSheet, Text, View, ScrollView, Share, TouchableOpacity, AsyncStorage} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Card,  Form, Item, Picker, Fab, Spinner} from 'native-base';
+import Geocoder from 'react-native-geocoder';
 import {Actions} from 'react-native-router-flux';
 import * as firebase from 'firebase';
 import {Firebase} from '../../helpers/Firebase';
@@ -12,7 +13,8 @@ export default class Home extends Component<Props> {
      selected2: undefined,
      active:false,
      states:[],
-     loading:true
+     loading:true,
+     location: null
    };
    this.states = []
    this.ref = firebase.database().ref().child('stats')
@@ -29,10 +31,28 @@ export default class Home extends Component<Props> {
      })
      this.setState({states:this.states, loading:false})
    })
+   this.findCoordinates()
  }
  shareApp = () => {
    Share.share({message:"Hello, I have downloaded the Sing Foundation Election Violence Monitoring App, and I am excited to share it with you. Download it to view and report election violence in areas near you.", title:"Sing Foundation App"})
  }
+ findCoordinates = () => {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        let loc = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        }
+        Geocoder.geocodePosition(loc).then(res => {
+          AsyncStorage.setItem('location', res[0].formattedAddress)
+          AsyncStorage.setItem('latitude', position.coords.latitude.toString())
+          AsyncStorage.setItem('longitude', position.coords.longitude.toString())
+        }).catch(err => console.log(err))
+      },
+      error => Alert.alert(error.message),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+    );
+  }
  showPageContent () {
    return (
      <View style={styles.body}>

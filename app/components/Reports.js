@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TouchableHighlight, Image, ScrollView} from 'react-native';
+import {Platform, StyleSheet, Text, View, TouchableHighlight, Image, ScrollView, AsyncStorage} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Card,  Form, Item, Picker, Textarea, Content, Spinner } from 'native-base';
 import ImagePicker from 'react-native-image-picker';
 import {Actions} from 'react-native-router-flux';
@@ -44,13 +44,22 @@ export default class Reports extends Component<Props> {
      selected1:'',
      selected3:'',
      selected2: '',
-     avatarSource:''
+     avatarSource:'',
+     location:'',
+     latitude:'',
+     longitude:''
    };
    this.statsRef = firebase.database().ref().child('stats')
    this.unitsRef = firebase.database().ref().child('polling_units')
    this.reportsRef = firebase.database().ref().child('reports')
    this.reportCountRef = firebase.database().ref().child('report_count')
    this.lgaRef = firebase.database().ref().child('lgas')
+  }
+  async componentDidMount () {
+    let location =  await AsyncStorage.getItem('location')
+    let longitude = await AsyncStorage.getItem('longitude')
+    let latitude = await AsyncStorage.getItem('latitude')
+    this.setState({location, longitude, latitude})
   }
   onValueChange2(value: string) {
     this.setState({
@@ -101,11 +110,13 @@ export default class Reports extends Component<Props> {
    }
   submitReport = () => {
     this.setState({loading:true})
-    if (this.state.avatarSource !== '') {
+    if (this.state.avatarSource !== '' && this.state.comments !== '') {
         this.saveImage()
-      }else{
+      }else if (this.state.comments !== ''){
       this.saveForm('')
-      }
+    }else{
+      alert("Cannot make reports without a comment")
+    }
     }
   saveForm (url) {
    var data = {
@@ -119,6 +130,8 @@ export default class Reports extends Component<Props> {
      state:this.props.stateId,
      wardId:this.props.wardId,
      lgaId:this.props.lgaId,
+     location:this.state.location,
+     position:{longitude:this.state.longitude, latitude:this.state.latitude}
    }
    this.statsRef.child(this.props.stateId).child(this.state.selected2).once('value', (reports)=>{
      reports.ref.set(reports.val() + 1)
@@ -223,11 +236,18 @@ export default class Reports extends Component<Props> {
              </Item>
           </Form>
           <View style={{flex:0.5, textAlign:'center',flexDirection:'row', justifyContent:'center', alignItems:'center', margin:15}}>
+            <Text style={{fontSize:18, color:'#424242'}}> Location</Text>
+          </View>
+          <View style={{flex:0.5, textAlign:'center',flexDirection:'row', justifyContent:'center', alignItems:'center', margin:15}}>
+            <Text style={{fontSize:18, color:'red'}} >{this.state.location} </Text>
+          </View>
+
+          <View style={{flex:0.5, textAlign:'center',flexDirection:'row', justifyContent:'center', alignItems:'center', margin:15}}>
             <Text style={{fontSize:18, color:'#424242'}}> Comments</Text>
           </View>
           <Form>
               <Textarea onChangeText={(comments)=>this.setState({comments})} rowSpan={10} bordered placeholder="" />
-            </Form>
+          </Form>
 
               {this.state.avatarSource === '' &&
               <View  style={{flex:0.5, textAlign:'center',flexDirection:'row', justifyContent:'center', alignItems:'center', margin:15}}>
@@ -240,12 +260,17 @@ export default class Reports extends Component<Props> {
                     source={{uri: this.state.avatarSource}}
                    />}
               {this.state.selected2 !== '' && this.state.selected3 !== '' && this.state.selected1 !== '' && <View style={styles.button}>
-              {this.state.loading ? <Spinner color='green' /> : <Button onPress={this.submitReport}  warning>
-               <Text style={{color:'white', padding: 20, paddingTop: 5, fontSize:18}}>Report</Text>
-             </Button>}
+
            </View>}
         </View>
-        <View style={{flex:0.5, }}></View>
+        <View style={{flex:0.5,justifyContent:'center', alignItems:'center' }}>
+          {this.state.loading ? <Spinner color='green' /> :
+          <View>
+            {this.state.location !== '' && <Button onPress={this.submitReport}  warning>
+             <Text style={{color:'white', padding: 20, paddingTop: 5, fontSize:18}}>Report</Text>
+           </Button>}
+          </View>}
+        </View>
       </ScrollView>
 
     </View>

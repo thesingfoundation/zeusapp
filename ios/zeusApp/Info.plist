@@ -41,8 +41,12 @@
 	<string>for photo library access</string>
 	<key>NSCameraUsageDescription</key>
 	<string>for camera usage</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>for report tracking</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>for report tracking</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string>for report tracking</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>access to microphone for video upload</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
@@ -65,6 +69,10 @@
 		<string>rubicon-icon-font.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
